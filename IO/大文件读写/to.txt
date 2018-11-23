@@ -1,0 +1,28 @@
+What Is My IP?
+WhatIsMyIP.com® is the industry leader in providing REAL IP address information. We provide IP address tools that allow users to perform an Internet Speed Test, IP address lookup, proxy detection, IP Whois Lookup, and more. We have extensive tutorials that show users how to trace an email address, how to change IP addresses, and how to hide their IP information. Knowing your IP address is crucial for online gaming, tech support, using remote desktop connections, connecting to a security camera DVR, anonymity or even running an email server. If you’ve got questions about IP addresses and can’t find the answer on our site, feel free to post your question in our IP Address Q & A section.
+What Is An IP Address?
+This number is an exclusive number on all information technology devices (printers, routers, modems, etc) use which identifies and allows them the ability to communicate with each other on a computer network. [Read more...]
+What Is IPv6?
+IPv6 or Internet Protocol version 6 is the replacement for IPv4. An IPv6 address looks like this 2600:1005:b062:61e4:74d7:f292:802c:fbfd and an IPv4 addresses looks like this 75.123.253.255. [Read more...]
+What Is My IP?
+WhatIsMyIP.com® is the industry leader in providing REAL IP address information. We provide IP address tools that allow users to perform an Internet Speed Test, IP address lookup, proxy detection, IP Whois Lookup, and more. We have extensive tutorials that show users how to trace an email address, how to change IP addresses, and how to hide their IP information. Knowing your IP address is crucial for online gaming, tech support, using remote desktop connections, connecting to a security camera DVR, anonymity or even running an email server. If you’ve got questions about IP addresses and can’t find the answer on our site, feel free to post your question in our IP Address Q & A section.
+What Is An IP Address?
+This number is an exclusive number on all information technology devices (printers, routers, modems, etc) use which identifies and allows them the ability to communicate with each other on a computer network. [Read more...]
+What Is IPv6?
+IPv6 or Internet Protocol version 6 is the replacement for IPv4. An IPv6 address looks like this 2600:1005:b062:61e4:74d7:f292:802c:fbfd and an IPv4 addresses looks like this 75.123.253.255. [Read more...]
+WhatIsMyIP.com API
+Our API (Application Programming Interface) gives you access to most of our tools programmatically. In order to access the API, you must be a Gold level member. Gold level accounts get 10 API keys. Each key is allowed 1,440 calls per day (1 per minute) for a total of 14,400 calls per day (10 per minute). [Read more...]
+Speed Test
+A broadband speed test can help you determine if you're getting the most bang for your buck with your ISP. You could be paying upwards of $50 dollars a month for access to the web from your ISP. Knowing exactly how fast your link actually is, will be an important step in identifying whether you are really getting value for your money.
+IP Lookup
+Your IP Location can be found using our IP Lookup tool. No IP Lookup tool is 100% accurate due to many different factors. Some of those factors include where the owner of the IP has it registered, where the agency that controls the IP is located, proxies, cellular IPs, etc.
+Change IP
+There are MANY methods to change your IP address. Some methods will work for you but may not work for someone else and vice versa. We're going to cover how to change your IP address in Windows 2000, XP, 2003, and Vista using command prompt. You may be asking "What if I have a static IP Address".
+WhatIsMyIP.com API
+Our API (Application Programming Interface) gives you access to most of our tools programmatically. In order to access the API, you must be a Gold level member. Gold level accounts get 10 API keys. Each key is allowed 1,440 calls per day (1 per minute) for a total of 14,400 calls per day (10 per minute). [Read more...]
+Speed Test
+A broadband speed test can help you determine if you're getting the most bang for your buck with your ISP. You could be paying upwards of $50 dollars a month for access to the web from your ISP. Knowing exactly how fast your link actually is, will be an important step in identifying whether you are really getting value for your money.
+IP Lookup
+Your IP Location can be found using our IP Lookup tool. No IP Lookup tool is 100% accurate due to many different factors. Some of those factors include where the owner of the IP has it registered, where the agency that controls the IP is located, proxies, cellular IPs, etc.
+Change IP
+There are MANY methods to change your IP address. Some methods will work for you but may not work for someone else and vice versa. We're going to cover how to change your IP address in Windows 2000, XP, 2003, and Vista using command prompt. You may be asking "What if I have a static IP Address".

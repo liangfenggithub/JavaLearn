@@ -1,0 +1,734 @@
+0.java简介
+	1.java是一门应用于 分布式网络环境下 的程序设计语言
+	2.java语言特点
+		1.可移植性（universality）
+			1.一次编译,处处运行
+			2.java语言运行在JVM(JAVA Virtual Machine)java虚拟机当中
+		2.安全性（security）
+			沙箱机制和没有了指针
+		3.面向对象
+			java中一切都是对象，编写java程序就是设计、实现类并定义其属性和行为的过程。
+		4.java支持多线程（thread）
+		5.垃圾回收机制（garbage collection）
+			java可以自动回收内存垃圾
+
+1.java基本语法
+	0.基本与C类似
+	1.一条命令以分号结束
+	2.注释:
+		1.//这是单行注释,
+		2./*这是多行注释
+		  */
+		3./**
+			这是javadoc注释
+		  */
+	3.java的标识符
+		0.标识符就是自定义的变量、类名、方法名等
+		1.标识符区分大小写，长度不限
+		2.不能使用数字开头，可以使用英文、数字、美元符号、下划线
+		3.不能使用Java关键字，关键字:
+			1.基本数据类型：
+				boolean,byte,char,short,int,long,float,double
+			2.访问控制符：
+				private,protected,public,default
+			3.与类相关的关键字
+				class,abstract,interface,extends,implements,
+			4.与对象相关的关键字
+				new,instanceof,this,super,null
+			5.与方法相关的关键字
+				void,return,
+			6.控制语句
+				if,else,switch,case,default,for,do,while,break,continue
+			7.逻辑值
+				true,false
+			8.异常处理
+				try,catch,finally,throw,throws
+			9.其他
+				transient,volatile,package,import,synchronized,native,final,static,strictfp
+			10.停用关键字
+				goto,const,
+	4.命名规范
+		1.变量和方法均已小写字母开头，
+		2.类名已大写字母开头
+	5.数据类型
+		1.基本数据类型（primitive type）
+			1.逻辑型
+				boolean 1个字节
+				注意：
+					1.有两个取值： true，false
+					eg：boolean a = true; boolean b = false;
+			2.字符型
+				char 2个字节 
+				注意：
+					1.java使用unicode字符集处理文字，用两个字节表示一个文字
+					2.定义char时区分单双引号，单引号用于字符，双引号用于字符串
+					eg: char achar = 'b'
+			3.整形
+				byte  1个字节
+				short 2个字节
+				int   4个字节
+				long  8个字节
+				注意：
+					1.八进制在整形前加0，eg：int a = 012
+					2.16进制在整形前加0x或0X, eg: int b = 0x12
+			4.实数型
+				float 4个字节 单精度型
+				double 8个字节 双精度型
+				注意：
+					1.一般小数被看做double双精度型，要使用float型小数，需要在小数后加f或者F,
+					eg: double d = 3.3;
+						float f = 1.2f;
+		2.引用（对象）数据类型（object type）
+			1.数组
+			2.对象
+			3.字符串
+				String 是一个类，表示字符串
+				eg:
+					Sting str = new String("abcdfefsda");
+					String str2 = "5we4"; 
+				注意：
+					1.上例中 str和str2是String类型对象的引用
+	6.整形和实数型数据类型的转换
+		1.自动类型转换
+			0.自动类型转换依据向上转换原则
+			1.两个取值范围比int类型小或者跟int类型取值相同数据进行运算结果都为int，因为java是以4字节为单位进行数据处理，当两个数据进行运算时，java会先将其转为int在进行运算。
+			eg：byte b1 = 1; byte b2 = 2; byte b3 = b1+b2 运行报错，因为b1和b2计算前以及变为了int，计算后的结果也是int，赋值给byte当然报错
+			2.对于四个字节以上的变量进行运行，java会将取值小的自动转为取值大的变量
+				1.比float小的类型或float与float计算，结果自动转为float型
+				2.比double小或double与double计算，结果自动转为double型
+			注意：在java中，java规定float比long大，虽然float占用四字节，而long占用8字节。以为float能表示小数
+		2.强制类型转换
+			1.语法与c一样，采用在变量前加 括号内类型名 
+			eg：int b3 = (int)3.7; b3值为3,
+				int b4 = 7; int b5 = 3; double b6 = (double)b4/b5; 运算结果b6为3.5
+
+	7.String对象与基本数据类型间的转换
+		eg：String s = “你好” + 12; 运算结果为：你好12
+		与javascript相同，Stirng与其他类型进行"+"运算的结果位字符串拼接。
+	8.运算符
+		与c相同，唯一不同为java多出一个instanceof运算符，用于判断对象是否属于一个类
+		eg：Student instanceof People ,如果Strudent是Perpon的对象，返回true否则返回false
+	9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0.编译时指定编码
+	javac -encoding utf-8 HelloWorld.java，
+1.继承
+	作用
+		能够简化重复代码，继承父类的方法和属性。
+	注意：
+		java只支持单继承，一个子类只能由一个父类
+	语法：
+		class Person{
+			private name;
+			int age;
+			void info(){
+				System.out.println("我的名字是："+ this.name + "我今年"+ this.age+"岁了");
+			}
+		}
+		class Student extends Person{
+			//此时student就继承了person的属性，拥有name和age及info方法
+			//同时还可以同时扩充本类的属性和方法，如学生有年级属性和上课方法
+
+			int grade;
+			void study(){
+				System.out.println("学习);
+			}
+		}
+2.生成子类
+	1.在子类的构造函数中，必须调用父类的构造函数，默认编译器自动在子类的构造函数中调用super()函数，即调用父类的构造函数
+		为什么要这样做呢？
+			1.简化设计
+			2.子类无法继承父类的构造方法，但是可以调用父类的构造方法
+	2.利用super（）函数调用父类的构造方法，必须放在子类的构造方法的第一句
+	3.如果子类没有构造函数，则编译器自动创建构造无参数函数super函数调用父类的无参数构造函数
+3.复写
+	override是在子类中重写父类的方法。另外可以通过super来执行父类的方法
+4.转型 
+	转型是面向对象多态性的体现，包括向上转型和向下转型
+	1.向上转型
+		生成一个子类的对象，将子类的对象赋值给父类的引用
+		如：
+			Student s = new Student();
+			Person p = s;  //其中Student是Person的子类
+			其中p只能调用s中的变量，
+				p如果调用方法是调用的person中的方法
+		注意：
+			1.一个引用能够调用哪些成员变量和成员方法，取决于这个引用的类型，也就是只可以调用本引用类型的变量和方法
+			2.当存在重写函数时（子类与父类的同名函数）一个引用调用的是哪个方法，取决于这个引用所指向的对象，也就是调用所指向的方法，具体看例子。
+	2.向下转型
+		将父类的对象赋值给子类的应用（前提是先向上转型）
+		如：
+			Student s1 = new Student();
+			Person p = s1; //先上上转型，其中Student是Person的子类
+			Student s2 = （Student）p;//在强制转换回来
+		再如：
+			Person p = new Person();
+			Student s2 = （Student）p;//错误，原因通俗的讲，你不能将随便一个人转换为学生。 
+5.抽象函数
+	只有函数定义，没有函数体的函数成为抽象函数。
+	定义：
+		1.抽象类不能生成对象   抽象类本来就是用来当爹的（被子类继承）但是可以拥有构造函数（被子类调用），哈哈哈
+		2.如果一个类如果有一个及一个以上的抽象函数则必须定义该类为抽象类   
+		3.如果一个类中没有抽象函数，那么这个类也可以被申明为抽象类    
+		4.子类在继承抽象类时，必须复写抽象类中的抽象函数，否则编译不能通过。
+		5.抽象类使用abstract来定义
+
+	语法：
+		abstract void fun();
+
+6.为什么使用抽象类？
+	1.抽象类最的作用是 防止子类忘记复写父类的实现方法，具体为当一个抽象类中的抽象函数没有被子类的函数复写时，编译不会通过。
+	举例，
+		在打印机中定义了一个打印函数，而针式打印机和喷墨打印机（打印机的子类）都有打印方法，但是具体实现不一样，也就是父类难以写出子类的通用方法时，这个方法必须由子类来实现，所以具体的打印方法应该在针式打印机和喷墨打印机来实现，此时就存在一个问题，如果不采用父类抽象类，子类是否实现具体的打印方法，编译都能通过，容易出错，但是引入抽象类和抽象方法后，作为父类的子类必须实现父类的方法，否则编译不会通过。
+
+	2.现代变成理论有一个概念是：如果一段代码在语义上是有错误的的，那么在语法上也应该是有错误的，抽象类就是为了实现这个思想，具体如上例子所述。
+	3.以上只是抽象类最简单的内容，现有知识只能理解如此
+7.包
+	1.什么是java中的软件包？
+		不同文件夹下放置的同名类文件，软件包为Java类提供了命名空间。
+	2.为什么使用包？
+		解决区分同名类的问题
+	3.如何打包？
+		1.在文件头写一行 package 包名;
+		2.编译：javac -d . 文件名  其中：-d指明根据包名生成文件夹，后边跟目录，点“.”代表当前目录，也就是生成的文件夹生放在当前目录下
+		3.系统自动在当前文件夹中生成文件夹
+		4.一旦打包后，其类名变为“包名+.+类型”,如liangfeng.Test
+		5.多个类文件可以打到一个包中
+	4.包名的命名规范：
+		1.包名所有字母都必须小写
+		2.报名一般是你的域名倒过来写（不是字母倒过来写）如：我的域名是 liangfeng.org, 那么包名为org.liangfeng,打包后调用类方法为 org.liangfeng.Test,只要多一个点就多一级目录
+ 
+ 8.访问权限
+ 	0. 权限主要和继承有关系
+ 	1. java中的访问权限分为四大类：
+	 	1.public:公共权限
+	 	2.private：私有权限
+	 	3.default：包级别访问权限
+	 	4.protected：受保护权限
+
+	2. 如果不是同一个包中的类没有声明为public，则其他包中的类就无法对其进行访问，也就是说要想包中的类被其他包中的类访问，则该类必须声明为public，同理，如果在一个包中，想要访问另外一个包中的变量，则变量必须为public，否则编译失败，总结：跨包时需要使用public权限。
+	3.private是类级别的访问权限，如果一个类中的变量或者函数被声明为private时，变量和函数只能在本类中被访问，如果你不想让一个类中的某个变量或者函数被别的类调用，则可以声明为private权限。
+	4.default是包级别访问权限，什么都不写，默认就是default权限，如果在一个包中，没有任何限制，如果在不同包中，如果子类和父类不在同一个包中，那么子类不能访问父类的default权限的成员变量和成员函数
+	5.包的导入：
+		如果想要使用另外一个包中的类，则需要进行导入，导入后可直接使用类型，未导入需要写明类的全名(包名.类名)，如：import org.liangfeng.Person; 还可以使用通配符“*”导入该包下所有的类
+	6.protected的权限拥有和default一样的功能，但是该权限只能修饰成员变量和成员函数，（default还可以修饰类变量），protected也可以实现跨包访问，但是只能被子类调用，不能被其他类调用。
+
+	总结：
+		public：可以修饰类，成员变量和成员函数，public声明后没有任何限制，本包和跨包自由访问。
+		private： 可以修饰成员函数和成员变量，限制变量和函数只能在本类中使用，不能被外部类使用
+		default: 可以修饰类，成员变量和成员函数，不写权限修饰符，就是default权限，在同一包中，可以自由访问。与public的区别是“包”
+		protected：可以向public一样实现跨包访问，但是被修饰后的成员变量和成员函数只能在子类中被访问，其他类中不能访问。而public是任意类可以访问。。
+
+		权限从高到底排序：public > protected > default > private
+						 跨包自由访问 > 跨包子类访问 > 本包自由访问 > 本类访问
+	7.一个基本原则：类和成员变量和成员函数权限尽可能的小，体现面向对象的封装性。
+
+9. 接口						 
+	1. 定义
+		接口定义了标准，接口就是标准，定义了接口就是定义了调用对象的标准。如同电脑的USB接口。
+	2.基本语法
+		1.使用interface定义 可以理解为比较纯粹的抽象类
+		2.接口中方法全是抽象方法。
+		3.接口中方法全是public权限。java中不声明权限默认为default，但是接口是一个例外，如果不写，默认为public
+		4.接口和抽象类一样不能生成对象，只能被继承。其他类继承接口是使用 implement 关键字（实现）顾名思义，实现接口。implement（实现）是一种特殊的继承，
+		5.一个类可以实现多个接口
+		6.一个接口可以继承多个接口，子接口就具有了负接口的抽象方法。
+		7.接口也是可以向上转型的，比如例子中的Phone可以转型为USB和WiFi
+	3.为什么使用接口？
+		接口定义标准，子类来实现具体方法。好处是？？？？不知道怎么解释
+	4.工厂方法模式
+		将生成对象的方法放在一个函数中，调用此函数，返回要生成的对象。
+		工厂方法的作用是使得调用方不需要知道一个接口有多少子类，只需要调用工厂方法就可以生成要得到的对象。
+10. 异常
+	1.什么是异常？
+		0.异常是程序运行中，中断了正常指令流的事件 。
+		1.Exception:
+		2.异常是一个对象，由由java虚拟机生成的一个对象，生成对象就得需要类，异常类是由JDK来提供的。
+		3.对异常的处理关系到系统的健壮性
+	2.异常的分类
+		Throwable
+			Exception
+				RuntimeException(运行时异常) 及其子类都是 uncheck exception
+				......其余都是(编译型异常 )check exception
+			error(虚拟机产生的错误，一旦error，虚拟机就会关闭，程序执行失败)
+
+	3.注意：check exception是需要捕捉的异常，必须使用try...catch捕捉，否则编译不能通过。
+	4.try...catch...finally结构的使用方法
+		try{
+			有可能出现异常的语句
+		}
+		catch(Exception e){//e是虚拟机产生的异常对象。
+			一旦出现异常则执行这里的语句
+		}
+		finally{
+			无论是否异常都会执行，通常称为异常的出口
+			在这里通常做一些释放资源的清理工作，比如关闭数据库、文件、socket等
+		}
+11.自定义异常
+	1.throw
+		抛出异常
+	2.throws
+		声明异常，紧跟在函数后表示异常由函数的调用方来处理
+12.IO
+	0.IO系统的主要目标是为了对数据进行读写操作
+	1.IO的流向都是以JAVA程序为参照物的。
+	2.IO的分类
+		第一种分法
+			1.输入流
+			2.输出流
+		第二种分法
+			1.字节流
+			2.字符流
+		第三种分法
+			1.节点流
+			2.处理流
+	3.IO中的核心类
+		1.InputStream(抽象类) -> FileInputStream
+		2.OutputStream(抽象类) -> FileOutputStream
+		3.核心类的核心方法
+			1.InputStream
+				int read(byte[]b,int off,int len);
+			2.OutStream
+				int write(byte[]b, int off,int len);
+	4.大文件的读写
+		当读写大文件时，不可能直接定义大文件体积的字节数组，所以必须要通过循环读取来实现。
+	5.字符流
+		1.读写文件时，以字符为基础
+		2.字符流核心类
+			字节输入流 Reader -> FileReader
+			字节输出流 Writer -> FileWriter
+		3.核心类核心方法
+			int read (char[] c,int off, int len);
+			int write(char[] c,int off, int len);
+	6.处理流
+		1.BufferedReader(字符输入处理流)
+			public String readline() throws IOException
+		2.BufferedReader对象是怎么生成的？
+		3.必须先有节点流，才能使用处理流，（字节流对象作为参数传入处理流的构造函数中）
+
+	7.装饰者（decorator）模式
+		1. 举个例子，比如工人类下有木工类和水管工类，而木工类下分别有A公司的木工和B公司的木工，水管工也具有AB公司的水管工。现在规定A公司的水管工和木工进入顾客家中必须先说“你好，我是A公司的员工” 那么就可以利用装饰者来实现，如例子所示，被装饰者和装饰者搭配可实现多个类的功能，如A公司的水管工和A公司的木工和B公司的，。。。。
+		装饰者和被装饰者都是一个父类或者接口的实现，被装饰类的对象作为参数传入装饰类的构造函数生成新的对象，那么在装饰类和被装饰类的同名函数中可执行特定操作（比如说你好）之后再执行被装饰者的同名函数，实际是添加被装饰者的功能。
+		2. BufferedReader是FileReader的装饰类。其中BufferReader是处理流，而FileReader是节点流
+
+13.内部类
+	1.内部类是指一个类中又定义一个类，比如类A中定义了类B，编译后会生成A$B.class
+	2.内部类实例化对象使用 A.B b = new A().new B();
+	3.内部类可以使用外部类的所有成员函数和成员变量，但并不意味这B继承了A;
+
+14.匿名内部类
+	匿名指的是没有名字，匿名内部类就是在类的内部使用一个没有名字的类，注意使用这个类的目的是新建一个对象。
+	举例，假设B类中的一个方法的参数是接口A子类Aimpl实现的对象，那么可以这样写
+		B b = new B();
+		b.fun(new A(){//规定接口是不能生成对象的，在这里接口A紧跟大括号中的内容是对接口A的实现类，new出来一个没有名字的对象
+			public void doSomething(){
+				System.out.println("匿名内部类");
+			}
+		});
+
+15.线程
+	1.线程和进程
+		多进程：
+			在操作系统中能（同时）运行多个任务（程序）
+		多线程：
+			在同一个程序有多个顺序流（同时）执行
+	2.线程的执行过程
+		生成线程 -> 进入就绪状态 <-> 抢到CPU运行 -> 死亡
+						 |				|
+					     |___阻塞状态___|
+
+		new() -> Runable <-> Running -> dead
+	3.java中所有一切都是对象，线程也是一个对象。线程是由一个对象来表示的。有线程对象肯定有线程类。
+	4.线程类
+		Thread
+
+	5.线程的实现（两种方法）
+		1.定义一个线程类，继承Thread类（Thread类由JDK提供）并重写其中方法run(),run()。方法被称为线程体。实例化此类，也就是生成此类的对象后，调用start（）方法及启动一个线程。
+			注意：1.由于Java只支持单继承，用这种方法定义的类不能再继承其他类。
+				  2.java中生成一个继承Thread线程的对象就是启动一个线程。
+				  3.调用start()函数后并不是线程立即开始执行，而是线程进入就绪态，等待抢占cpu。
+				  4.线程的执行顺序：没谱! 不能确定
+				  5.生成一个线程对象后，整个程序存在三个线程：主函数线程、自定义的线程、垃圾回收线程。
+		2.程序员提供一个实现接口Runable 的类作为线程的目标对象，在初始化一个Thread类或者Thread子类的线程对象时，把目标对象传递给这个线程实例，由该目标对象提供线程体。
+
+		3.常见开发过程中，常用第二种方法，也就是实现runnable接口，因为第一种继承Thread只能继承一次（java是单继承的）
+
+	6.简单的线程控制方法
+		1.中断线程
+			1. Thread.sleep(毫秒数)， 使得当前线程进入休眠状态，让出CPU,当休眠时间到后进入就绪态抢占cpu使用权。
+			2. Thread.yield() 线程自动让出CPU，然后让每个线程竞争抢占CPU，有可能本线程又得到了CPU,这个很有意思
+		2.设置线程的优先级
+			1. t.getPriority() 取得优先级
+			2. t.setPriority(优先级) 设置优先级
+			注意：
+				1. 线程优先级最大是10，最小是1 ，对应Thread.MAXPRIORITY和Thread.MINPRIORITY
+				2. 线程越大，执行的概率就越大，注意不是一定先执行！
+
+	7.多线程数据安全
+		问题
+			多线程共用一份数据时，容易发生错误。比如两个线程同时操作变量i，i的值是从100-1递减，两个线程打印，会出现重复打印和漏打印的情况。
+		解决办法
+			同步代码块（synchronized）
+				使用synchronized(this){代码块}//其中this为调用同步代码块的对象，实际上是对象的同步锁，在大括号内的“代码块”会被线程独占式执行，也就是在这个代码块的执行期间，这个对象的锁被本线程占用，其他线程得等本线程执行释放了这个对象的锁（执行完毕这块代码块）才可执行这块代码块。简而言之，加同步代码块之后，同步锁被一个线程占用后，这个对象的其他同步代码块不能被执行，直到对象的锁被释放。
+		注意：
+			1. 多线程对数据进行操作时，需要加锁保证数据安全。
+			2. 许多书籍中说同步锁是锁住了代码块，这是错误的，同步代码块是指本对象的锁被线程独占。
+
+	8.同步锁
+		1.同步锁并不是锁住了代码块！
+		2.一个线程获得了一个对象的同步锁，那么这个对象中的同步代码块，都不能被其他线程执行，因为锁没有被本线程释放。注意：这个同步锁并不会影响非同步代码（未加synchronoized的代码）。
+		例如
+			如果两个线程同时操作一个对象中的不同的两个函数，这两个函数中都是同步代码块，只要一个线程进入同步代码块，也就是获得了本对象的锁，那么第二个线程就不能执行两个函数。因为拿不到这个对象的锁。
+
+	9.同步方法
+		同步方法和同步代码块作用一样，只是同步方法默认锁定的是this，而同步代码块可以指定锁那个。
+		语法：
+			在方法名前加上 synchronized 关键字，
+			如：public synchronized void fun1(){代码块}
+16.数组
+	1.数组的类型
+	2.数组的定义方法
+		1.静态声明法
+			int arr[] = {1,3,4,5,6,76};//与C语言类似
+			int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};//二维数组
+		2.动态定义法
+			int arr[] = new arr[10];
+			int char[] = new char[3][5];
+		注意：java和c一样，数组一旦定义后，长度不可改变！！！！
+	3.数组的操作方法
+17.类集框架
+	1.什么是类集框架：
+		0.类集框架是JDK的得意之作
+		1.类集框架是一组类和接口
+		2.类集框架放置在java.util包当中
+		3.主要用于存储和管理对象(JAVA是面向对象的语言)，内容可扩充
+	2.集合的种类
+		主要分为三大类：集、列表和映射
+		集（Collection）
+			1.什么是集（set）
+				1.没有顺序
+				2.不可重复
+			2.什么是列表（List）
+				1.有顺序
+				2.可重复
+			3.什么是队列（Queue）
+				1.有序
+				2.可重复
+		映射（Map）
+			1.什么是映射（Map）
+				1.key-value形式存储，键值对  
+				2.键不可重复
+				3.值可以重复
+
+	3.类集框架的基础结构
+		1.Collection和iteration是类集框架的顶级接口
+		2.List、set是继承Collection的接口
+		3.详细见图：类集框架的主体结构
+
+	4.ArrayList
+		0. ArrayList和Array的区别
+			Array定义后大小不可改变而ArrayList可以改变大小
+		1.定义
+			ArrayList<对象> arraylist = new ArrayList<对象>();//其中 <对象> 是java的泛型，声明此ArrayList可以存放对象，且只能存放本类对象，
+		2.重要方法
+			1.add(对象) 
+				向ArrayList中添加数据	//比如add(“hello”)
+			2.get(index) 
+				向ArrayList中获取数据   // get(1);
+			3.size();
+				得到ArrayList的大小 
+			4.remove(index)
+				移除掉第index的元素
+		3.例子：
+			//String的arraylist
+			ArrayList<String> arraylist = new ArrayList<String>();
+			arraylist.add("hello");
+			arraylist.add("i");
+			arraylist.add("am");
+			arraylist.add("ArrayList");
+			arraylist.add("lllll");
+			arraylist.remove(4);
+			for(int i = 0 ; i<arraylist.size(); i++){
+				System.out.println(arraylist.get(i));
+			}
+	5.Collection接口
+		1.collection接口是集合的顶级接口，掌握了此接口的基本用法，底层的实现类就差不多了
+		2.常用方法
+			1.boolean add(Object o) 
+				像集合当中加入一个对象
+			2.void clear()
+				删除集合中所有对象
+			3.remove(Object o)
+				从集合中删除一个对象的引用
+			4.boolean isEmpty(Object o)
+				判断集合是否为空
+			5.int size()
+				返回集合中元素的数目
+	6.Iterator接口 
+		0.Iterator是迭代器，用于取出set的数据，见下。
+		1.与Collection相同，Iterator也是集合的顶级接口，collection接口继承Iterator接口
+		2.常用方法
+			1.boolean   hasNext();
+				判断迭代器有没有下一个对象
+			2.next();
+				返回迭代器的下一个对象
+
+	7.Set
+		0.Iterator <-- Collection <-- Set <-- HashSet (后边的继承前边的)
+								  <-- List <-- ArrayList
+		1.Collection是iterator的子接口，Set是Collection的子接口，Hashset是set的实现类，所以Collection的方法，Set也适用，HashSet也可以使用Collection的方法。
+		3.开发时一般定义的HashSet对象都向上转型为set的引用，以为作为参数传入的不一定是Set的哪个实现类，有可能是TreeSet
+		4.在set中无序但不可重复，当使用add方法添加重复的值时，set会忽略
+		5.使用 iterate (迭代器)取set数据
+			1.要使用迭代器,必须生成一个迭代器对象，使用迭代器对象往出取数据
+				Iterator<对象> iterator = set.iterator();//调用Set对象的iterator方法会生成的迭代器对象，该对象用于遍历整个Set
+			2.取出的对象不一定是第几个，是乱序的。
+			3.集合是无序的，所以不像ArrayList使用get(序号)就可取出来,但是ArrayList可以通过iterator取出数据。
+		6.例子
+		Set<String> set = new HashSet<String>();
+		boolean isempty = set.isEmpty();
+		System.out.println(isempty);
+		set.add("a");
+		set.add("b");
+		set.add("c");
+		set.add("d");
+		set.remove("a");
+		int i = set.size();
+		System.out.println(i);
+		Iterator<String> it = set.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+		set.clear();
+
+	8.Map
+		1.Map是键值对，键不可重复,值可以重复
+		
+		2.Map与HashMap的使用方法
+			1.put(键,值) 
+				赋值
+			2.get(键,值)
+				取值
+		3.例子
+			HashMap<String,String> hashmap = new HashMap<String,String>();
+			Map<String,String> map = hashmap;
+			map.put("0","a");
+			map.put("1","b");
+			map.put("2","c");
+			map.put("3","d");
+			map.put("4","e");
+			System.out.println(map.get("3"));
+			map.put("3","new value");
+			System.out.println(map.get("3"));
+			int i = map.size();
+			System.out.println("map 的size 是："+i);
+
+		4.JDK帮助文档的使用方法
+			1.在帮组文档中，每个类都有详细的使用说明和介绍，如果以后遇到不会的类，去里面查一下，
+			2.我收藏了在线文档在浏览器的“工具”中
+	
+	9.equals函数
+		1.equals函数在什么地方
+			被包含在Object类中，而Object类是所有类的父类。也就是说所有的类都有equals函数
+		2.equals函数的作用
+			1. 双等号“==”
+				1.对于一般数据类型来讲，双等号用于判断两者是否相等
+				2.对于引用数据类型来讲，双等号用于判断两个引用是否指向堆内存的同一个块地址。（引用在栈中，对象在堆中）
+			2.equals函数用于比较两个对象的内容是不是相等。
+				通常情况下对象相等需要符合两个条件
+					1.对象的类型相同 （可以用instanceof操作符进行比较）
+						boolean b = obj instanceof User;//用于判断obj是不是User类的一个对象
+					2.两个对象的成员变量的值完全相同
+		3.为什么要复写equals方法
+			简而言之，对于引用类型来讲，Object类默认提供的equals方法只提供了两者是否为堆内存的同一地址，并没有判断两者类型和内容是否相同。不能满足对象间是否相等判断的功能，所以要复写。
+		3.复写equals函数的方法
+			1.在类中复写equals方法，方法体重首先利用双等号 “==” 判断两者是否是否为堆内存的同一块地址，如果是那肯定类型和内容相同，直接返回true,否则进行下一步的判断，也就是判断两者的类型和内容是否相等。此时，利用instanceof操作符判断equal传入的参数对象是否为this也就是调用方的同类，如果不是直接返回false，如果是再继续判断两者的内容。内容相同，返回true，否则返回false。注意这里判断内容，如果是基本数据类型那么使用双等号，如果是引用数据类型，那么使用equals函数，这不是递归，因为调用方不一样。
+			2. 例子：
+				class User{
+					String name;
+					int age;
+					public boolean equals(Object obj){
+						if(this == obj){//如果两个引用指向地址相同，说明两个对象完全相等。在这里，如果两个引用指向的同一块地址，那么肯定内容相同，所以返回true
+							return true;
+						}
+						//判断类型是否相同，如果相同再判断内容，如果类型不同，直接返回false
+						boolean b = obj instanceof User;//instanceof 是一个操作符，用于判断前边的是不是后边类的一个对象
+						if(b){
+							User u = (User)obj;//向下转型为User类型 ，类型相同的话肯定能转型成功，否则不一定成功
+							if(this.age == u.age && this.name.equals(u.name)){//注意这里不是递归调用，因为equals的调用方不同，这里是name，因为name是String类型，也就是引用数据类型，所以不能使用双等号来比较了
+
+								return true;
+							}
+
+						}else{	
+							return false;
+						}
+					}
+				}
+
+	10.hashCode
+		1.与equals都是Objcet的函数，所有类都具有hashCode函数
+		2.hash算法
+			1.任意长度数据-->hash算法-->唯一的散列值
+				如果数据变化，那么散列值就变化了 。
+			2.特点
+				提高查找的效率。
+		3.int hashCode()
+			1.此函数没有参数，任意对象调用后会返回一个唯一的hash编码。
+			2.sun公司规定，如果两个对象用equals方法判断相等，那么两个对象调用hashCode生成的hash码也应该是相等的。
+			3.默认Object的hashCode不满足上述第二条，因此需要重写
+			4.此函数多用在集中，比如hashMap的get方法就是通过计算对象的hashCode方法得到一个值来判断次对象是否存在于map中
+		4.复写hashcode例子
+			public int hashCode(){
+				result result = 17;
+				result = 31 * result + 成员变量；//此成员变量是int型的
+				result = 31 * result + 成员变量.hashCode();//此成员变量是String类型 
+				return result;
+			}
+	11.toString
+		0.原型 String toString(){....};
+		1.与equals，hashCode相同，也是Objcet的函数，所有类都具有hashCode函数
+		2.使用System.out.println(对象)调用的是对象的toString方法。
+		3.重写toString()是为了增加对象可读性，
+		4.例子
+			public String toString(){
+				String result ="age:"+ age+ ", name: "+ name;//name和age都为成员变量。
+				return result;
+			}
+18 读取资源文件
+	0.资源文件方便替换一些不用再程序中修改的文件，比如输出的文字等。
+	1.java中利用properties文件和Propertie类来实现资源文件的读取。
+	2.资源文件需要配合FileInputStream来实现：先读取文件，在装载到properties对象中.
+	3.资源文件格式
+		1.名称 xxx.properties
+		2.内容 key=value //多个键值对
+	4.路径分隔符用File.separator表示，是为了解决windows和unix文件路径斜杠不一致的问题。
+	5.获取本文件当前路径
+		System.getProperties("user.dir");
+	6.例子
+		1.在project下的resourses文件夹下建立 first.properties 文件
+			Properties properties  = new Properties();
+			String projectPath = System.getProperty("user.dir");//得到project路径
+			String propertiesPath = projectPath+Files.separator+"resourse"+Files.separator+"first.properties";
+			InputStream in = new FileInputStream(propertiesPath);//读取properties文件
+			properties.load(in);//装载properties文件到对象中
+			System.out.println(properties.get(键名))
+19 综合练习
+	1.练习目标
+		1.复习Java基本语法
+		2.熟练掌握Java常用API
+		3.尝试建立面向对象思想
+	2.练习需求
+		1.接收用户的命令行输入
+		2.以文件为基础完成数据的增删改查操作
+			1.数据格式
+				id 姓名  年龄 性别   薪水
+				   name  age gender salary
+			2. 增
+			    Add  alex 33 男 8000.00
+			3. 删
+				Delete id:3 或者 Delete name:王五
+			4.改
+				Update id:4 salary = 5000.00
+			5.查
+				Query age>30
+		3.模块划分
+			1.UI模块
+				1.帮助模块
+				2.输入接收模块
+				3.结果输出模块
+				x.用到的技术
+					1.System.in
+					2.System.out.
+					3.BufferedReader
+			2.文件IO模块快
+				1.数据插入
+				2.数据查询
+				x.用到的技术
+					1.RandomAccessFile
+					2.String
+					3.类集框架
+			3.数据验证模块
+			4.逻辑模块
+
+		4.界面设计
+			1.欢迎界面
+				欢迎使用 人员管理 系统
+					0.增
+					1.删
+					2.改
+					3.查
+					4.帮助
+					5.退出
+				请选择功能（输入数字并回车）
+			2.增界面
+				请按照以下格式输入用户信息
+				Add   name age gender salary
+				您输入用户信息为：
+				是否正确?（Y/N）
+					请按照以下格式输入用户信息
+					。。。
+				数据新增成功。失败。
+					0.增
+					1.删
+					2.改
+					3.查
+					4.帮助
+					5.退出
+				请选择功能（输入数字并回车）
+			3.查界面
+				请按照以下格式输入查询用户信息
+					Query id/name/age/gender/salary:xxx
+				查询结果如下：
+				未找到您查询的信息
+					0.增
+					1.删
+					2.改
+					3.查
+					4.帮助
+					5.退出
+				请选择功能（输入数字并回车）
+			4.删界面
+				请按照以下格式输入删除用户信息
+					Delete id/name :xxx
+				是否删除以下用户信息？（Y/N）
+				删除成功。放弃删除
+					0.增
+					1.删
+					2.改
+					3.查
+					4.帮助
+					5.退出
+				请选择功能（输入数字并回车）
+			5.改界面
+				请按照以下格式输入用户信息
+				Update id/name/age/gender/salary:xxx id/name/age/gender/salary = 值
+				您要修改的用户信息为：
+				确认修改?（Y/N）
+				修改成功，放弃修改
+					0.增
+					1.删
+					2.改
+					3.查
+					4.帮助
+					5.退出
+				请选择功能（输入数字并回车）
+
